@@ -28,7 +28,8 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
   "include": [
@@ -36,6 +37,7 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.js",
+    ".contentlayer/generated",
     ".eslintrc.cjs",
     ".next/types/**/*.ts",
     "next-env.d.ts"
