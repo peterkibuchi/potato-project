@@ -18,6 +18,43 @@ const computedFields: ComputedFields = {
   },
 };
 
+export const Article = defineDocumentType(() => ({
+  name: "Article",
+  filePathPattern: `articles/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+    image: {
+      type: "string",
+      required: true,
+    },
+    published: {
+      type: "boolean",
+      default: true,
+    },
+    authors: {
+      // Reference types are not embedded.
+      // Until this is fixed, we can use a simple list.
+      // type: "reference",
+      // of: Author,
+      type: "list",
+      of: { type: "string" },
+      required: true,
+    },
+  },
+  computedFields,
+}));
+
 export const Author = defineDocumentType(() => ({
   name: "Author",
   filePathPattern: `authors/**/*.mdx`,
@@ -54,46 +91,9 @@ export const Page = defineDocumentType(() => ({
   computedFields,
 }));
 
-export const Post = defineDocumentType(() => ({
-  name: "Post",
-  filePathPattern: `posts/**/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    title: {
-      type: "string",
-      required: true,
-    },
-    description: {
-      type: "string",
-    },
-    date: {
-      type: "date",
-      required: true,
-    },
-    image: {
-      type: "string",
-      required: true,
-    },
-    published: {
-      type: "boolean",
-      default: true,
-    },
-    authors: {
-      // Reference types are not embedded.
-      // Until this is fixed, we can use a simple list.
-      // type: "reference",
-      // of: Author,
-      type: "list",
-      of: { type: "string" },
-      required: true,
-    },
-  },
-  computedFields,
-}));
-
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Author, Page, Post],
+  documentTypes: [Article, Author, Page],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
