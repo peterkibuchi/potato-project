@@ -1,87 +1,48 @@
+import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
-import { allArticles, allAuthors } from "contentlayer/generated";
+import { allArticles } from "contentlayer/generated";
 
 import { Mdx } from "~/components/content/mdx-components";
 import { buttonVariants } from "~/components/ui/button";
-import { absoluteUrl, cn, formatDate, getBaseUrl } from "~/lib/utils";
-
-interface PostPageProps {
-  params: {
-    slug: string[];
-  };
-}
-
-function getPostFromParams(params: PostPageProps["params"]) {
-  const slug = params?.slug?.join("/");
-  const post = allArticles.find((post) => post.slugAsParams === slug);
-
-  if (!post) {
-    null;
-  }
-
-  return post;
-}
-
-export function generateMetadata({ params }: PostPageProps) {
-  const post = getPostFromParams(params);
-
-  if (!post) {
-    return {};
-  }
-
-  const ogUrl = new URL(`${getBaseUrl()}/api/og`);
-  ogUrl.searchParams.set("heading", post.title);
-  ogUrl.searchParams.set("type", "Blog Post");
-  ogUrl.searchParams.set("mode", "dark");
-
-  return {
-    title: post.title,
-    description: post.description,
-    authors: post.authors.map((author) => ({
-      name: author,
-    })),
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: "article",
-      url: absoluteUrl(post.slug),
-      images: [
-        {
-          url: ogUrl.toString(),
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.description,
-      images: [ogUrl.toString()],
-    },
-  };
-}
+import { siteConfig } from "~/config";
+import { absoluteUrl, cn, constructMetadata, formatDate } from "~/lib/utils";
 
 export function generateStaticParams() {
   return allArticles.map((post) => ({
-    slug: post.slugAsParams.split("/"),
+    slug: post.slugAsParams,
   }));
 }
 
-export default function PostPage({ params }: PostPageProps) {
-  const post = getPostFromParams(params);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata | undefined> {
+  const post = allArticles.find((post) => post.slugAsParams === params.slug);
+  if (!post) return;
 
-  if (!post) {
-    notFound();
-  }
+  const { title, description, image } = post;
 
-  const authors = post.authors.map((author) =>
-    allAuthors.find(({ slug }) => slug === `/authors/${author}`),
-  );
+  return constructMetadata({
+    title: `${title} | ${siteConfig.name}`,
+    description: description,
+    image,
+    type: "article",
+    url: absoluteUrl(post.slug),
+  });
+}
+
+export default function PostPage({ params }: { params: { slug: string } }) {
+  const post = allArticles.find((post) => post.slugAsParams === params.slug);
+
+  if (!post) notFound();
+
+  // const authors = post.authors.map((author) =>
+  //   allAuthors.find(({ slug }) => slug === `/authors/${author}`),
+  // );
 
   return (
     <article className="container relative max-w-3xl py-6 lg:py-10">
@@ -110,7 +71,7 @@ export default function PostPage({ params }: PostPageProps) {
           {post.title}
         </h1>
 
-        {authors?.length ? (
+        {/* {authors?.length ? (
           <div className="mt-4 flex space-x-4">
             {authors.map((author) =>
               author ? (
@@ -128,15 +89,15 @@ export default function PostPage({ params }: PostPageProps) {
                   />
                   <div className="flex-1 text-left leading-tight">
                     <p className="font-medium">{author.title}</p>
-                    {/* <p className="text-[12px] text-muted-foreground">
+                    <p className="text-[12px] text-muted-foreground">
                       @{author.twitter}
-                    </p> */}
+                    </p>
                   </div>
                 </Link>
               ) : null,
             )}
           </div>
-        ) : null}
+        ) : null} */}
       </div>
 
       {post.image && (

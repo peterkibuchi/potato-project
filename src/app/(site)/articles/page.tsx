@@ -3,6 +3,7 @@ import Link from "next/link";
 import { allArticles } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 
+import { siteConfig } from "~/config";
 import { formatDate } from "~/lib/utils";
 
 export const metadata = {
@@ -24,12 +25,13 @@ export default function ArticlesPage() {
             Articles
           </h1>
           <p className="text-xl text-muted-foreground">
-            News, information and research about the potato value chain, from
-            production to consumption.
+            {siteConfig.description}
           </p>
         </div>
       </div>
+
       <hr className="my-8" />
+
       {posts?.length ? (
         <div className="grid gap-10 sm:grid-cols-2">
           {posts.map((post, index) => (

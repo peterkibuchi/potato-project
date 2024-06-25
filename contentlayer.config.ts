@@ -50,7 +50,7 @@ export const Article = defineDocumentType(() => ({
       // of: Author,
       type: "list",
       of: { type: "string" },
-      required: true,
+      required: false,
     },
   },
   computedFields,
