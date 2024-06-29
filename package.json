@@ -42,7 +42,7 @@
     "@typescript-eslint/parser": "^7.14.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.4",
-    "postcss": "^8.4.38",
+    "postcss": "^8.4.39",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "rehype-autolink-headings": "^7.1.0",
