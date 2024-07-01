@@ -4,11 +4,11 @@ import { allArticles } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 
 import { siteConfig } from "~/config";
-import { formatDate } from "~/lib/utils";
+import { constructMetadata, formatDate } from "~/lib/utils";
 
-export const metadata = {
-  title: "Articles",
-};
+export const metadata = constructMetadata({
+  title: `Articles | ${siteConfig.name}`,
+});
 
 export default function ArticlesPage() {
   const posts = allArticles

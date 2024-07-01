@@ -6,10 +6,6 @@ import { compareDesc } from "date-fns";
 import { siteConfig } from "~/config";
 import { formatDate } from "~/lib/utils";
 
-export const metadata = {
-  title: "Home",
-};
-
 export default function HomePage() {
   const posts = allArticles
     .filter((post) => post.published)

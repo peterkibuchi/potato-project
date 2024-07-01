@@ -24,7 +24,7 @@ export function constructMetadata({
   noIndex?: boolean;
 } = {}): Metadata {
   return {
-    title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
+    title,
     description,
     creator: siteConfig.creator,
     authors: siteConfig.authors,
