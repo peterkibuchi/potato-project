@@ -1,8 +1,3 @@
-import Link from "next/link";
-
-import { ModeToggle } from "~/components/mode-toggle";
-import { buttonVariants } from "~/components/ui/button";
-import { footerItems } from "~/config/site";
 import { cn } from "~/lib/utils";
 import { Icons } from "../icons";
 
@@ -15,25 +10,6 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
           <p className="text-center text-sm leading-loose md:text-left">
             © {new Date().getFullYear()} AFRICA-ai-JAPAN. All rights reserved.
           </p>
-        </div>
-
-        <div className="flex items-center">
-          <div className="ml-auto text-sm text-primary">
-            {footerItems.map((item, index) => (
-              <Link
-                key={index}
-                href={item.disabled ? "#" : item.href}
-                target="_blank"
-                referrerPolicy="no-referrer"
-                className={buttonVariants({ variant: "ghost" })}
-              >
-                <item.icon className="h-5 w-5" />
-                <span className="sr-only">{item.title}</span>
-              </Link>
-            ))}
-          </div>
-
-          <ModeToggle />
         </div>
       </div>
     </footer>

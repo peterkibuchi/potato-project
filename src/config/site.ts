@@ -1,7 +1,7 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 import { siteConfig } from "~/config";
-import type { FooterItem, MarketingConfig } from "~/types";
+import type { MarketingConfig, NavItem } from "~/types";
 
 export const marketingConfig: MarketingConfig = {
   mainNav: [
@@ -16,7 +16,7 @@ export const marketingConfig: MarketingConfig = {
   ],
 };
 
-export const footerItems: FooterItem[] = [
+export const navItems: NavItem[] = [
   {
     title: "GitHub",
     href: siteConfig.links.github,
