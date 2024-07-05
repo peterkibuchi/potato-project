@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Icons } from "~/components/icons";
 import { siteConfig } from "~/config";
-import { useLockBody } from "~/hooks/use-lock-body";
+import { useLockBody } from "~/lib/use-lock-body";
 import { cn } from "~/lib/utils";
 import { type MainNavItem } from "~/types";
 
