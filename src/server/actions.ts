@@ -1,5 +1,7 @@
 "use server";
 
+import "server-only";
+
 import { chatbotPrompt } from "~/context/chatbot-prompt";
 import { type Message } from "~/lib/validators/message";
 import {
