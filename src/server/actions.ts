@@ -1,12 +1,12 @@
 "use server";
 
 import { chatbotPrompt } from "~/context/chatbot-prompt";
+import { type Message } from "~/lib/validators/message";
 import {
   OpenAIStream,
   type ChatGPTMessage,
   type OpenAIStreamPayload,
-} from "~/lib/openai-stream";
-import { type Message } from "~/lib/validators/message";
+} from "~/server/openai-stream";
 
 export const getQueryResponse = async (messages: Message[]) => {
   const outboundMessages: ChatGPTMessage[] = messages.map((message) => {

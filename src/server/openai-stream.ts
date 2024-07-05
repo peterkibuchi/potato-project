@@ -28,9 +28,5 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
     stream: true,
   });
 
-  for await (const chunk of stream) {
-    process.stdout.write(chunk.choices[0]?.delta?.content ?? "");
-  }
-
   return stream;
 }
