@@ -10,6 +10,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import { MessagesContext } from "~/context/messages";
 import { cn } from "~/lib/utils";
 import { type Message } from "~/lib/validators/message";
+import { getQueryResponse } from "~/server/actions";
 
 type ChatInputProps = HTMLAttributes<HTMLDivElement>;
 
@@ -24,20 +25,13 @@ export function ChatInput({ className, ...props }: ChatInputProps) {
     setIsMessageUpdating,
   } = useContext(MessagesContext);
 
-  const { mutate: sendMessage, isPending } = useMutation({
+  const { mutate: server_sendMessage, isPending } = useMutation({
     mutationKey: ["sendMessage"],
 
     // include message to later use it in onMutate
     mutationFn: async (_message: Message) => {
-      const response = await fetch("/api/message", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ messages }),
-      });
-
-      return response.body;
+      const stream = await getQueryResponse(messages);
+      return stream.toReadableStream();
     },
 
     onMutate(message) {
@@ -65,8 +59,10 @@ export function ChatInput({ className, ...props }: ChatInputProps) {
       let done = false;
 
       while (!done) {
-        const { value, done: doneReading } = await reader.read();
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const { done: doneReading, value } = await reader.read();
         done = doneReading;
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         const chunkValue = decoder.decode(value);
         updateMessage(id, (prev) => prev + chunkValue);
       }
@@ -102,7 +98,7 @@ export function ChatInput({ className, ...props }: ChatInputProps) {
                 text: input,
               };
 
-              sendMessage(message);
+              server_sendMessage(message);
             }
           }}
           rows={2}
@@ -112,7 +108,7 @@ export function ChatInput({ className, ...props }: ChatInputProps) {
           disabled={isPending}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Write a message..."
-          className="peer block w-full resize-none border-0 bg-zinc-100 p-1.5 pr-10 text-sm text-gray-900 focus:ring-0 disabled:opacity-50 sm:leading-6"
+          className="peer block w-full resize-none border-0 bg-zinc-100 py-1.5 pr-10 text-sm text-gray-900 focus:ring-0 disabled:opacity-50 sm:leading-6"
         />
 
         <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
