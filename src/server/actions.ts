@@ -24,7 +24,7 @@ export const getQueryResponse = async (messages: Message[]) => {
   });
 
   const payload: OpenAIStreamPayload = {
-    model: "gpt-3.5-turbo",
+    model: "gpt-4o-mini",
     messages: outboundMessages,
     temperature: 0.4,
     top_p: 1,
