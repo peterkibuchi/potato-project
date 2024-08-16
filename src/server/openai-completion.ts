@@ -11,7 +11,7 @@ export interface ChatGPTMessage {
   content: string;
 }
 
-export interface OpenAIStreamPayload {
+export interface OpenAICompletionPayload {
   model: string;
   messages: ChatGPTMessage[];
   temperature: number;
@@ -24,11 +24,11 @@ export interface OpenAIStreamPayload {
 
 const openai = new OpenAI({ apiKey: env.OPENAI_API_KEY });
 
-export async function OpenAIStream(payload: OpenAIStreamPayload) {
-  const stream = await openai.chat.completions.create({
+export async function OpenAICompletion(payload: OpenAICompletionPayload) {
+  const completion = await openai.chat.completions.create({
     ...payload,
-    stream: true,
+    stream: false,
   });
 
-  return stream;
+  return completion;
 }

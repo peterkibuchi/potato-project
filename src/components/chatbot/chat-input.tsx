@@ -17,58 +17,44 @@ type ChatInputProps = HTMLAttributes<HTMLDivElement>;
 export function ChatInput({ className, ...props }: ChatInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [input, setInput] = useState<string>("");
-  const {
-    messages,
-    addMessage,
-    removeMessage,
-    updateMessage,
-    setIsMessageUpdating,
-  } = useContext(MessagesContext);
+  const { messages, addMessage, removeMessage } = useContext(MessagesContext);
 
   const { mutate: server_sendMessage, isPending } = useMutation({
     mutationKey: ["sendMessage"],
 
     // include message to later use it in onMutate
     mutationFn: async (_message: Message) => {
-      const stream = await getQueryResponse(messages);
-      return stream.toReadableStream();
+      const completion = await getQueryResponse(messages);
+      return completion;
     },
 
     onMutate(message) {
       addMessage(message);
     },
 
-    onSuccess: async (stream) => {
-      if (!stream) throw new Error("No stream");
+    onSuccess: async (completion) => {
+      if (!completion) throw new Error("No completion");
 
-      // construct new message to add
+      // Ensure completion has the expected structure
+      if (
+        !Array.isArray(completion.choices) ||
+        !completion.choices[0]?.message?.content
+      ) {
+        throw new Error("Unexpected completion structure");
+      }
+
+      // Construct new message to add
       const id = nanoid();
       const responseMessage: Message = {
         id,
         isUserMessage: false,
-        text: "",
+        text: completion.choices[0].message.content,
       };
 
-      // add new message to state
+      // Add new message to state
       addMessage(responseMessage);
 
-      setIsMessageUpdating(true);
-
-      const reader = stream.getReader();
-      const decoder = new TextDecoder();
-      let done = false;
-
-      while (!done) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const { done: doneReading, value } = await reader.read();
-        done = doneReading;
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        const chunkValue = decoder.decode(value);
-        updateMessage(id, (prev) => prev + chunkValue);
-      }
-
       // clean up
-      setIsMessageUpdating(false);
       setInput("");
 
       setTimeout(() => {

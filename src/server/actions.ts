@@ -5,10 +5,10 @@ import "server-only";
 import { chatbotPrompt } from "~/context/chatbot-prompt";
 import { type Message } from "~/lib/validators/message";
 import {
-  OpenAIStream,
+  OpenAICompletion,
   type ChatGPTMessage,
-  type OpenAIStreamPayload,
-} from "~/server/openai-stream";
+  type OpenAICompletionPayload,
+} from "~/server/openai-completion";
 
 export const getQueryResponse = async (messages: Message[]) => {
   const outboundMessages: ChatGPTMessage[] = messages.map((message) => {
@@ -23,7 +23,7 @@ export const getQueryResponse = async (messages: Message[]) => {
     content: chatbotPrompt,
   });
 
-  const payload: OpenAIStreamPayload = {
+  const payload: OpenAICompletionPayload = {
     model: "gpt-4o-mini",
     messages: outboundMessages,
     temperature: 0.4,
@@ -34,7 +34,7 @@ export const getQueryResponse = async (messages: Message[]) => {
     n: 1,
   };
 
-  const stream = await OpenAIStream(payload);
+  const completion = await OpenAICompletion(payload);
 
-  return stream;
+  return completion;
 };
