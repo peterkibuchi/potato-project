@@ -11,6 +11,7 @@ export default async function middleware(req: NextRequest) {
 
     return NextResponse.next();
   } catch (error) {
+    console.error(error);
     return new NextResponse(
       "Something went wrong processing your message. Please try again later.",
     );
