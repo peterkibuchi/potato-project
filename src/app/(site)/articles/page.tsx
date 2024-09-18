@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { allArticles } from "contentlayer/generated";
-import { compareDesc } from "date-fns";
 
 import { siteConfig } from "~/config";
 import { constructMetadata, formatDate } from "~/lib/utils";
@@ -13,9 +12,7 @@ export const metadata = constructMetadata({
 export default function ArticlesPage() {
   const posts = allArticles
     .filter((post) => post.published)
-    .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date));
-    });
+    .sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
