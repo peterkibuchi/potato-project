@@ -39,8 +39,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       contentlayer2:
-        specifier: ^0.5.1
-        version: 0.5.1(esbuild@0.20.2)
+        specifier: ^0.5.3
+        version: 0.5.3(esbuild@0.20.2)
       geist:
         specifier: ^1.3.1
         version: 1.3.1(next@14.2.18(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -51,11 +51,11 @@ importers:
         specifier: ^14.2.18
         version: 14.2.18(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-contentlayer2:
-        specifier: ^0.5.1
-        version: 0.5.1(contentlayer2@0.5.1(esbuild@0.20.2))(esbuild@0.20.2)(next@14.2.18(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.5.3
+        version: 0.5.3(contentlayer2@0.5.3(esbuild@0.20.2))(esbuild@0.20.2)(next@14.2.18(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes:
-        specifier: ^0.3.0
-        version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.4.3
+        version: 0.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       openai:
         specifier: ^4.72.0
         version: 4.72.0(zod@3.23.8)
@@ -188,14 +188,14 @@ packages:
     resolution: {integrity: sha512-Z/yiTPj+lDVnF7lWeKCIJzaIkI0vYO87dMpZ4bg4TDrFe4XXLFWL1TbXU27gBP3QccxV9mZICCrnjnYlJjXHOA==}
     engines: {node: '>=6.9.0'}
 
-  '@contentlayer2/cli@0.5.1':
-    resolution: {integrity: sha512-nwDTAXKBXUg/eORBxXLDA9FoCxaSqhengSb6FjlyBCkrRyJ3IKQhWilld9Ol1xyYfTisI/5iddHa9ZB4kqltNg==}
+  '@contentlayer2/cli@0.5.3':
+    resolution: {integrity: sha512-8xO+piFSNVq5Ad2P3D30nM0BzQh1qQ0Q4kIx2otlLhYe3tdeuf3TCB3nFZTgfOJESnZABxqy6XTcfpmeAfNd/Q==}
 
-  '@contentlayer2/client@0.5.1':
-    resolution: {integrity: sha512-5/mNEEJN47h9AQ11qt9iu3XJCAMhgAPRJRp64+Trgr1iKHRVOWg9VvV+NHL3NCnDqMbJrw7vWICCgdCWn114IQ==}
+  '@contentlayer2/client@0.5.3':
+    resolution: {integrity: sha512-ZlrPpNhK+jNF00f20G6MIlELiEnVjUPuyjXeRHNsq582DzqcdgE/Etqa5O5zJ9/w3fhvyj5N1h7fP0MLFoswPw==}
 
-  '@contentlayer2/core@0.5.1':
-    resolution: {integrity: sha512-PR9uJ5lZC6wSq37uX252LZzNpWLmxJjlOzuxcBvFtmX4aSfOBbykSG/EVlwaLK0dFAT/q0vx+nObg7D2mpQ0YA==}
+  '@contentlayer2/core@0.5.3':
+    resolution: {integrity: sha512-qGDryuO+6Uw0U8JZ9cdrxzieEJkkwuTuT+soycnYFShuvqofb+wkpktnsaTn4wUXLd5ut/ngPrH/9w/IbOlF2w==}
     peerDependencies:
       esbuild: '>=0.17'
       markdown-wasm: 1.x
@@ -205,14 +205,14 @@ packages:
       markdown-wasm:
         optional: true
 
-  '@contentlayer2/source-files@0.5.1':
-    resolution: {integrity: sha512-M2Z/LtfU9TwE9z9dH0jqU7UEI80KuFzVvnz51ykRsktfsbZ76n/0fU6ERojiqGS5KgK8Djg3SoxJsY521dvHjQ==}
+  '@contentlayer2/source-files@0.5.3':
+    resolution: {integrity: sha512-kESg2zAJKDQio5rCILpFPhsWklX5xmMdlJa9KSj5UdXMd7/gY+q0GiVqZ2PAmZi5+hG73pVihg9ieC2TEjLSIQ==}
 
-  '@contentlayer2/source-remote-files@0.5.1':
-    resolution: {integrity: sha512-VJRhJEIMXVr8qq4otmND1F8qvjU28fOZ9c9tmLuga2dHbiMiZbnSM4WOOkvJJ4tNJH/3OCfdWgznj/fdP2NyLw==}
+  '@contentlayer2/source-remote-files@0.5.3':
+    resolution: {integrity: sha512-0dxoLfS7EbVR3Xap4MPSmzLvQCGrMwtXVIA4ZmRHLOGzG+vWpaY9BtnCACb/Om4tUQBsCA9oduBjNqRu4Sx+gQ==}
 
-  '@contentlayer2/utils@0.5.1':
-    resolution: {integrity: sha512-cIsQ7ySGAbTZFhp8KdiSwHTYpD5GNmvTmCJtI/zaua23l33DuvEt9KCpZa9CmQ2IQyaGlTHKL2wv994bblCH8w==}
+  '@contentlayer2/utils@0.5.3':
+    resolution: {integrity: sha512-2nTFhZ7xnOevoZQnGP6BSIkTCpNos1PkGJ894gMYSmRMaMkyv+9VE9adoa0sywIA1y01iLU8niqcxJiuCQ1OkQ==}
     peerDependencies:
       '@effect-ts/otel-node': '*'
     peerDependenciesMeta:
@@ -1300,8 +1300,8 @@ packages:
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
-  contentlayer2@0.5.1:
-    resolution: {integrity: sha512-lsLaYijf5OrHXdi7WgHRHpBxWZr+EIB++IAwJj4svOId+2IW9GNTUW4hixKsAp6e/lzOl7ZnW1o1zk6tCLvOSA==}
+  contentlayer2@0.5.3:
+    resolution: {integrity: sha512-0vHdTWsuTgY/dMKxhCc8wILoeaCK5ye42i1gRd1jOoKFXQ6q/eMnSp+gSE81V8wbBa2jv7cjP90xpiRfzaXTWw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2367,19 +2367,19 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  next-contentlayer2@0.5.1:
-    resolution: {integrity: sha512-thDT4nsPAP6lHZlaHIPI25urR0+XDVSUexoZytze7PAAcEBRfiddrklA7JYZR7rhFgaCspDg1ryc7Six6lYUgw==}
+  next-contentlayer2@0.5.3:
+    resolution: {integrity: sha512-xNuiAJxeQOABiWsjJ6hFv/Ovb9vRujBgamaEjvYXiVecrBtCIyCDF3WpdDx4krfAd9WJRW8TN6OLpyZsG2ApjA==}
     peerDependencies:
-      contentlayer2: 0.5.1
+      contentlayer2: 0.5.3
       next: '>=12.0.0'
-      react: '*'
-      react-dom: '*'
+      react: ^18 || ^19 || ^19.0.0-rc
+      react-dom: ^18 || ^19 || ^19.0.0-rc
 
-  next-themes@0.3.0:
-    resolution: {integrity: sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==}
+  next-themes@0.4.3:
+    resolution: {integrity: sha512-nG84VPkTdUHR2YeD89YchvV4I9RbiMAql3GiLEQlPvq1ioaqPaIReK+yMRdg/zgiXws620qS1rU30TiWmmG9lA==}
     peerDependencies:
-      react: ^16.8 || ^17 || ^18
-      react-dom: ^16.8 || ^17 || ^18
+      react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
 
   next@14.2.18:
     resolution: {integrity: sha512-H9qbjDuGivUDEnK6wa+p2XKO+iMzgVgyr9Zp/4Iv29lKa+DYaxJGjOeEA+5VOvJh/M7HLiskehInSa0cWxVXUw==}
@@ -3294,10 +3294,10 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@contentlayer2/cli@0.5.1(esbuild@0.20.2)':
+  '@contentlayer2/cli@0.5.3(esbuild@0.20.2)':
     dependencies:
-      '@contentlayer2/core': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/utils': 0.5.1
+      '@contentlayer2/core': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/utils': 0.5.3
       clipanion: 3.2.1(typanion@3.14.0)
       typanion: 3.14.0
     transitivePeerDependencies:
@@ -3306,18 +3306,18 @@ snapshots:
       - markdown-wasm
       - supports-color
 
-  '@contentlayer2/client@0.5.1(esbuild@0.20.2)':
+  '@contentlayer2/client@0.5.3(esbuild@0.20.2)':
     dependencies:
-      '@contentlayer2/core': 0.5.1(esbuild@0.20.2)
+      '@contentlayer2/core': 0.5.3(esbuild@0.20.2)
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - esbuild
       - markdown-wasm
       - supports-color
 
-  '@contentlayer2/core@0.5.1(esbuild@0.20.2)':
+  '@contentlayer2/core@0.5.3(esbuild@0.20.2)':
     dependencies:
-      '@contentlayer2/utils': 0.5.1
+      '@contentlayer2/utils': 0.5.3
       camel-case: 4.1.2
       comment-json: 4.2.3
       gray-matter: 4.0.3
@@ -3335,10 +3335,10 @@ snapshots:
       - '@effect-ts/otel-node'
       - supports-color
 
-  '@contentlayer2/source-files@0.5.1(esbuild@0.20.2)':
+  '@contentlayer2/source-files@0.5.3(esbuild@0.20.2)':
     dependencies:
-      '@contentlayer2/core': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/utils': 0.5.1
+      '@contentlayer2/core': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/utils': 0.5.3
       chokidar: 3.6.0
       fast-glob: 3.3.2
       gray-matter: 4.0.3
@@ -3354,18 +3354,18 @@ snapshots:
       - markdown-wasm
       - supports-color
 
-  '@contentlayer2/source-remote-files@0.5.1(esbuild@0.20.2)':
+  '@contentlayer2/source-remote-files@0.5.3(esbuild@0.20.2)':
     dependencies:
-      '@contentlayer2/core': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/source-files': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/utils': 0.5.1
+      '@contentlayer2/core': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/source-files': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/utils': 0.5.3
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - esbuild
       - markdown-wasm
       - supports-color
 
-  '@contentlayer2/utils@0.5.1':
+  '@contentlayer2/utils@0.5.3':
     dependencies:
       '@effect-ts/core': 0.60.5
       '@effect-ts/otel': 0.15.1(@effect-ts/core@0.60.5)(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.0(@opentelemetry/api@1.9.0))
@@ -4413,14 +4413,14 @@ snapshots:
 
   concat-map@0.0.1: {}
 
-  contentlayer2@0.5.1(esbuild@0.20.2):
+  contentlayer2@0.5.3(esbuild@0.20.2):
     dependencies:
-      '@contentlayer2/cli': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/client': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/core': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/source-files': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/source-remote-files': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/utils': 0.5.1
+      '@contentlayer2/cli': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/client': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/core': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/source-files': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/source-remote-files': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/utils': 0.5.3
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - esbuild
@@ -5995,11 +5995,11 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-contentlayer2@0.5.1(contentlayer2@0.5.1(esbuild@0.20.2))(esbuild@0.20.2)(next@14.2.18(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next-contentlayer2@0.5.3(contentlayer2@0.5.3(esbuild@0.20.2))(esbuild@0.20.2)(next@14.2.18(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@contentlayer2/core': 0.5.1(esbuild@0.20.2)
-      '@contentlayer2/utils': 0.5.1
-      contentlayer2: 0.5.1(esbuild@0.20.2)
+      '@contentlayer2/core': 0.5.3(esbuild@0.20.2)
+      '@contentlayer2/utils': 0.5.3
+      contentlayer2: 0.5.3(esbuild@0.20.2)
       next: 14.2.18(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -6009,7 +6009,7 @@ snapshots:
       - markdown-wasm
       - supports-color
 
-  next-themes@0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next-themes@0.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
